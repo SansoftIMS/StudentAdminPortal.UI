@@ -5,16 +5,16 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Student } from '../models/ui-models/student.model';
 import { StudentService } from './student.service';
 
+
 @Component({
   selector: 'app-students',
   templateUrl: './students.component.html',
   styleUrls: ['./students.component.css']
 })
 export class StudentsComponent implements OnInit {
-
-  students:Student[] = [];
+  students: Student[] = [];
   displayedColumns: string[] = ['firstName', 'lastName', 'dateOfBirth', 'email', 'mobile', 'gender', 'edit'];
-  dataSource:MatTableDataSource<Student> = new MatTableDataSource<Student>();
+  dataSource: MatTableDataSource<Student> = new MatTableDataSource<Student>();
   @ViewChild(MatPaginator) matPaginator!: MatPaginator;
   @ViewChild(MatSort) matSort!: MatSort;
   filterString = '';
@@ -42,7 +42,7 @@ export class StudentsComponent implements OnInit {
         }
       );
   }
-  
+
   filterStudents() {
     this.dataSource.filter = this.filterString.trim().toLowerCase();
   }
